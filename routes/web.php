@@ -11,6 +11,16 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Rutas para el registro
+Route::get('/register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+Route::post('/register', 'Auth\RegisterController@register');
+
+// Rutas para el login
+Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::post('/login', 'Auth\LoginController@login');
+
+// Ruta para el logout
+Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
+
+// Ruta para la página principal
+Route::view('/main', 'main')->middleware('auth')->name('main');
