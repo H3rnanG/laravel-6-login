@@ -12,46 +12,47 @@
         </a>
         <div class="ml-auto d-flex align-items-center gap-3">
             <span class="navbar-text mr-3">{{ Auth::user()->name }}</span>
-            <a class="btn btn-outline-primary mr-2" href="#">Profile</a>
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            <a class="btn btn-outline-primary mr-2" href="{{ route('profile') }}">Profile</a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST">
                 @csrf
+                <button class="btn btn-outline-danger" type="submit">Logout</button>
             </form>
-            <a class="btn btn-outline-danger" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
         </div>
     </div>
 </nav>
 
 <div class="container">
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry the Bird</td>
-      <td>Larry the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table>
+  <button class="btn btn-success">Crear Post</button>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">Handle</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>Larry the Bird</td>
+        <td>Larry the Bird</td>
+        <td>@twitter</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 
 @endsection

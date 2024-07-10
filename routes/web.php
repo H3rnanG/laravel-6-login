@@ -11,6 +11,10 @@
 |
 */
 
+Route::get('/',function(){
+    return Redirect::to('/login');
+});
+
 // Rutas para el registro
 Route::get('/register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 Route::post('/register', 'Auth\RegisterController@register');
@@ -24,3 +28,6 @@ Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
 
 // Ruta para la página principal
 Route::view('/main', 'main')->middleware('auth')->name('main');
+
+// Rura para profile
+Route::view('/profile', 'profile')->name('profile');
