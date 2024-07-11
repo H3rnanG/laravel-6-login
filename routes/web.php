@@ -30,4 +30,7 @@ Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
 Route::view('/main', 'main')->middleware('auth')->name('main');
 
 // Rura para profile
-Route::view('/profile', 'profile')->name('profile');
+Route::get('/profile', 'ProfileController@showProfile')->name('profile');
+
+// Post
+Route::post('/post', 'PostController@store')->name('post.store');
