@@ -22,7 +22,7 @@
 </nav>
 
 <div class="container">
-  <button class="btn btn-success">Crear Post</button>
+  <a class="btn btn-success" href="{{route('create_post')}}">Crear Post</a>
   <table class="table">
     <thead>
       <tr>

@@ -2,10 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
+
+    public function showCreate(){
+        return view('add_post');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -34,7 +41,10 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $data['user_id'] = Auth::id();
+        Post::create($data);
+        return redirect()->back();
     }
 
     /**
@@ -81,4 +91,5 @@ class PostController extends Controller
     {
         //
     }
+
 }

@@ -1,4 +1,5 @@
 <?php
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,4 +34,5 @@ Route::view('/main', 'main')->middleware('auth')->name('main');
 Route::get('/profile', 'ProfileController@showProfile')->name('profile');
 
 // Post
-Route::post('/post', 'PostController@store')->name('post.store');
+Route::get('/post/create', [PostController::class, 'showCreate'])->name('create_post')->middleware('auth');
+Route::post('/post', [PostController::class, 'store'])->name('post.store')->middleware('auth');
